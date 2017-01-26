@@ -1,0 +1,5 @@
+.DS_STORE
+
+**/*.decrypted
+**/*.id_rsa
+**/id_rsa
