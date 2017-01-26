@@ -12,12 +12,17 @@ As `id_rsa` must be kept confidential and handled by following maximum security 
 - Go to on *Settings*
 - Go to *Deploy keys*
 
+# to generate a new ssh key
+
+- In your terminal, execute:
+    
+    ssh-keygen -t rsa -C "devops@starlightgroup.io"
+
 # to decrypt  
 
     openssl enc -d -aes-256-ecb \
         -in "${id_rsa}.encrypted" \
         -out "${id_rsa}.decrypted"
-    
 
 > example
 
@@ -26,15 +31,16 @@ As `id_rsa` must be kept confidential and handled by following maximum security 
 
     id_rsa="starlightgroup-devops.id_rsa"
 
-- Then, execute the following command to decrypt the id_rsa for use:
+- Then, execute the following command to decrypt the id_rsa for use
 
     openssl enc -d -aes-256-ecb \
         -in "${id_rsa}" \
         -out "${id_rsa}.decrypted"
 
+
 - Then, enter the password that is only shared by trusted members in your team.
 
-# encrypt
+# to encrypt
 
      openssl enc -aes-256-ecb \
         -in "${id_rsa}.decrypted" \
